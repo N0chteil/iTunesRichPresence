@@ -37,7 +37,7 @@ namespace iTunesRichPresence_Rewrite {
 
             ITunes = new iTunesApp();
 
-            _timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(15)};
+            _timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(1)};
             _timer.Tick += Timer_OnTick;
             _timer.Start();
 
@@ -102,7 +102,7 @@ namespace iTunesRichPresence_Rewrite {
             catch (COMException) {
                 ITunes = null;
                 var newPresence = new DiscordRpc.RichPresence {
-                    largeImageKey = "itunes_logo_big",
+                    largeImageKey = "applemusic-logo",
                     details = "Error connecting to iTunes",
                     state = "Playback information unavailable"
                 };
@@ -111,7 +111,7 @@ namespace iTunesRichPresence_Rewrite {
             }
             catch (EntryPointNotFoundException) {
                 var newPresence = new DiscordRpc.RichPresence {
-                    largeImageKey = "itunes_logo_big",
+                    largeImageKey = "applemusic-logo",
                     details = "No song playing",
                     state = "Re-install iTunesRichPresence to clear this message"
                 };
@@ -128,7 +128,7 @@ namespace iTunesRichPresence_Rewrite {
             _currentState = ITunes.PlayerState;
             _currentPosition = ITunes.PlayerPosition;
 
-            var presence = new DiscordRpc.RichPresence{largeImageKey = "itunes_logo_big"};
+            var presence = new DiscordRpc.RichPresence{largeImageKey = "applemusic-logo"};
             if (_currentState != ITPlayerState.ITPlayerStatePlaying) {
                 presence.details = TruncateString(RenderString(Settings.Default.PausedTopLine));
                 presence.state = TruncateString(RenderString(Settings.Default.PausedBottomLine));

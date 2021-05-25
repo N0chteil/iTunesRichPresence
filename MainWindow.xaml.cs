@@ -112,7 +112,7 @@ namespace iTunesRichPresence_Rewrite {
 
         private void CreateBridge() {
             _bridge?.Shutdown();
-            _bridge = (string)AppNameComboBox.SelectedItem == "iTunes" ? new DiscordBridge("383816327850360843") : new DiscordBridge("529435150472183819");
+            _bridge = (string)AppNameComboBox.SelectedItem == "iTunes" ? new DiscordBridge("383816327850360843") : new DiscordBridge("842112189618978897");
         }
 
         private void PopulateToolbox() {

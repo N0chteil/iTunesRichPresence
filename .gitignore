@@ -2,5 +2,6 @@
 bin/
 obj/
 *.sln
+*.csproj
 packages/
 iTunesRichPresence-Rewrite.sln.DotSettings.user
